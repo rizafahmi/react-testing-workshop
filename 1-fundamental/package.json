@@ -1,0 +1,18 @@
+{
+  "name": "1-fundamental",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Riza Fahmi <rizafahmi@gmail.com> (https://rizafahmi.com/)",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@babel/preset-env": "7.16.11",
+    "babel-jest": "28.0.0",
+    "jest": "28.0.0"
+  }
+}
