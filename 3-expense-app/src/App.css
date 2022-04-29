@@ -1,0 +1,6 @@
+.send-money {
+  background-color: #e5e5f7;
+  opacity: 0.4;
+  background-image: radial-gradient(#1a202c 0.5px, #e5e5f7 0.5px);
+  background-size: 10px 10px;
+}
