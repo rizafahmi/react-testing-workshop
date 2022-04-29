@@ -1,15 +1,32 @@
-import {
-  Button,
-  Flex,
-  Heading,
-  NumberInput,
-  NumberInputField,
-  Text,
-} from '@chakra-ui/react';
+import { useState, useRef } from 'react';
+import { Button, Flex, Heading, Input, Text } from '@chakra-ui/react';
 
 import './App.css';
 
 function App() {
+  const [balance, setBalance] = useState(125000);
+  const inputTopupRef = useRef();
+  const inputSendmoneyRef = useRef();
+
+  function format(value) {
+    return value.toLocaleString('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+    });
+  }
+
+  function handleTopup(e) {
+    e.preventDefault();
+    setBalance(balance + parseInt(e.target.topup.value));
+    inputTopupRef.current.value = null;
+  }
+
+  function handleSendmoney(e) {
+    e.preventDefault();
+    setBalance(balance - parseInt(e.target.sendmoney.value));
+    inputSendmoneyRef.current.value = null;
+  }
+
   return (
     <Flex height="100vh" alignItems="center" justifyContent="center">
       <Flex
@@ -34,7 +51,7 @@ function App() {
           alignItems="center"
           justifyContent="center"
         >
-          <Heading size="2xl">RP. 125.000,-</Heading>
+          <Heading size="2xl">{format(balance)}</Heading>
           <Text fontSize="sm" color="gray.500">
             Februari 2022
           </Text>
@@ -49,19 +66,21 @@ function App() {
             mx="2"
             border="1px"
           >
-            <form>
-              <NumberInput>
-                <NumberInputField
-                  width="100%"
-                  border="none"
-                  borderBottom="1px"
-                  focusBorderColor="gray.50"
-                  rounded={0}
-                  mb={4}
-                  color="white"
-                  required={true}
-                />
-              </NumberInput>
+            <form onSubmit={handleTopup}>
+              <Input
+                name="topup"
+                id="topup"
+                width="100%"
+                type="number"
+                ref={inputTopupRef}
+                border="none"
+                borderBottom="1px"
+                focusBorderColor="gray.50"
+                rounded={0}
+                mb={4}
+                color="white"
+                required={true}
+              />
               <Button
                 variant="link"
                 colorScheme="teal"
@@ -84,18 +103,19 @@ function App() {
             border="1px"
             borderColor="black"
           >
-            <form>
-              <NumberInput>
-                <NumberInputField
-                  width="100%"
-                  border="none"
-                  borderBottom="1px"
-                  focusBorderColor="none"
-                  rounded={0}
-                  mb={4}
-                  required={true}
-                />
-              </NumberInput>
+            <form onSubmit={handleSendmoney}>
+              <Input
+                width="100%"
+                border="none"
+                borderBottom="1px"
+                focusBorderColor="none"
+                rounded={0}
+                mb={4}
+                required={true}
+                id="sendmoney"
+                type="number"
+                ref={inputSendmoneyRef}
+              />
               <Button
                 variant="link"
                 colorScheme="red"
