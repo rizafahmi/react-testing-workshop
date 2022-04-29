@@ -4,12 +4,12 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
-  Button,
   Flex,
   Heading,
-  Input,
   Text,
 } from '@chakra-ui/react';
+
+import Transaction from './components/Transaction.js';
 
 import './App.css';
 
@@ -93,79 +93,12 @@ function App() {
             Februari 2022
           </Text>
         </Flex>
-        <Flex flex="3" justifyContent="space-between" minWidth="100%">
-          <Flex
-            width="100%"
-            flexDirection="column"
-            justifyContent="center"
-            bg="gray.800"
-            rounded="6"
-            mx="2"
-            border="1px"
-          >
-            <form onSubmit={handleTopup}>
-              <Input
-                name="topup"
-                id="topup"
-                width="100%"
-                type="number"
-                ref={inputTopupRef}
-                border="none"
-                borderBottom="1px"
-                focusBorderColor="gray.50"
-                rounded={0}
-                mb={4}
-                color="white"
-                required={true}
-              />
-              <Button
-                variant="link"
-                colorScheme="teal"
-                type="submit"
-                width="100%"
-                height="64px"
-                rounded={0}
-              >
-                Top Up
-              </Button>
-            </form>
-          </Flex>
-          <Flex
-            className="send-money"
-            width="100%"
-            justifyContent="center"
-            flexDirection="column"
-            rounded="6"
-            mx="2"
-            border="1px"
-            borderColor="black"
-          >
-            <form onSubmit={handleSendmoney}>
-              <Input
-                width="100%"
-                border="none"
-                borderBottom="1px"
-                focusBorderColor="none"
-                rounded={0}
-                mb={4}
-                required={true}
-                id="sendmoney"
-                type="number"
-                ref={inputSendmoneyRef}
-              />
-              <Button
-                variant="link"
-                colorScheme="red"
-                height="64px"
-                type="submit"
-                width="100%"
-                rounded={0}
-              >
-                Send Money
-              </Button>
-            </form>
-          </Flex>
-        </Flex>
+        <Transaction
+          handleTopup={handleTopup}
+          handleSendmoney={handleSendmoney}
+          inputTopupRef={inputTopupRef}
+          inputSendmoneyRef={inputSendmoneyRef}
+        />
       </Flex>
     </Flex>
   );
