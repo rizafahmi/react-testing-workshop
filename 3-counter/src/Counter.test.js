@@ -1,37 +1,27 @@
-import { render } from 'react-dom';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Counter from './Counter';
 
 test('render counter', function () {
   // Arrange
-  const div = document.createElement('div');
-  document.body.append(div);
-  render(<Counter />, div);
+  render(<Counter />);
 
   // Act
-  const count = div.firstChild.querySelector('div');
+  const count = screen.getByTestId('count');
 
   // Assert
   expect(count.textContent).toBe('0');
-
-  // Cleanup
-  div.remove();
 });
 
 test('increment counter', function () {
   // Arrange
-  const div = document.createElement('div');
-  document.body.append(div);
-  render(<Counter />, div);
+  render(<Counter />);
 
-  const increment = document.querySelector('button.increment');
+  const increment = screen.getByText('+');
 
   // Act
-  increment.click();
+  fireEvent.click(increment);
 
-  console.log(document.body.innerHTML);
   // Assert
-  const count = div.firstChild.querySelector('div');
+  const count = screen.getByTestId('count');
   expect(count.textContent).toBe('1');
-
-  div.remove();
 });
