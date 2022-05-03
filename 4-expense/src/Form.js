@@ -10,10 +10,10 @@ function Form({ onSubmit }) {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="amount">Amount</label>
-      <input name="amount" type="number" required={true} />
-      <label htmlFor="category">Category</label>
-      <select id="category" name="category">
+      <label htmlFor="amount-field">Amount</label>
+      <input id="amount-field" name="amount" type="number" required={true} />
+      <label htmlFor="category-field">Category</label>
+      <select id="category-field" name="category">
         <option value=""></option>
         <option value="Grocery">Grocery</option>
         <option value="Health">Health</option>
@@ -21,8 +21,8 @@ function Form({ onSubmit }) {
         <option value="Vehicle service">Vehicle service</option>
         <option value="Snack">Snack</option>
       </select>
-      <label htmlFor="">Date</label>
-      <input name="date" type="date" />
+      <label htmlFor="date-field">Date</label>
+      <input id="date-field" name="date" type="date" />
       <button type="submit">Save expense</button>
     </form>
   );
