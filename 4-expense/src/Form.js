@@ -5,7 +5,7 @@ function Form({ onSubmit }) {
     onSubmit({
       amount: amount.value,
       category: category.value,
-      date: date.value || new Date(),
+      date: date.value ? new Date(date.value) : new Date(),
     });
   }
   return (
@@ -22,7 +22,7 @@ function Form({ onSubmit }) {
         <option value="Snack">Snack</option>
       </select>
       <label htmlFor="date-field">Date</label>
-      <input id="date-field" name="date" type="date" />
+      <input id="date-field" name="date" type="text" />
       <button type="submit">Save expense</button>
     </form>
   );
