@@ -40,6 +40,13 @@ function App() {
   return (
     <div className="container">
       <h1>Expense</h1>
+      {appState === 'PENDING' && (
+        <article>
+          <a href="#" className="loading" aria-busy="true">
+            Submitting form...
+          </a>
+        </article>
+      )}
       {appState !== 'FINISH' ? (
         <Form onSubmit={(data) => onSubmit(data)} />
       ) : (

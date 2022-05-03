@@ -11,7 +11,7 @@ function Form({ onSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="amount">Amount</label>
-      <input name="amount" type="number" />
+      <input name="amount" type="number" required={true} />
       <label htmlFor="category">Category</label>
       <select id="category" name="category">
         <option value=""></option>
