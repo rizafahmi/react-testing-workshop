@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import Form from './Form.js';
 import List from './List.js';
+import { getExpenses, parseResponse } from './utils/data.js';
 
 function App() {
   const [appState, setAppState] = useState('START');
@@ -26,15 +27,12 @@ function App() {
   }
 
   async function getData() {
-    const res = await fetch(
-      `https://prod-qore-app.qorebase.io/vGTlXj3AduUBCg9/allExpense/rows?limit=50&offset=0`
-    );
-    const { nodes } = await res.json();
+    const response = await getExpenses();
+    const { nodes } = await parseResponse(response);
     setExpenseList(nodes);
   }
 
   function onSubmit(data) {
-    console.log(data);
     sendData(data);
   }
   return (
