@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  align-self: center;
+  text-align: center;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0.18);
+  font-family: Poppins;
+  font-size: 2rem;
+  padding: 0.25em 0.75em;
+  min-width: 10ch;
+  min-height: 44px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.1;
+}
+
+button.light {
+  background-color: #350c85;
+  color: #fff6d1;
+}
+
+button.dark {
+  background-color: #8260dc;
+  color: #fff6d1;
+}
+
+div.dark {
+  background-color: #150534;
+}
+div.light {
+  background-color: '#FFF6D1';
+}
